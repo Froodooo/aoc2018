@@ -1,17 +1,10 @@
-defmodule DayOne do
+defmodule AoC.DayOne.PartTwo do
+  alias AoC.DayOne.Common
+
   def main() do
-    read_input()
+    Common.read_input("lib/day1/input.txt")
     |> calculate_result()
     |> IO.puts()
-  end
-
-  def read_input() do
-    File.stream!("input.txt")
-    |> Stream.map(&String.trim/1)
-    |> Stream.filter(fn x -> x != "" end)
-    |> Stream.map(&String.trim_trailing/1)
-    |> Stream.map(&String.to_integer/1)
-    |> Enum.to_list()
   end
 
   def calculate_result(numbers, frequencies \\ [], base \\ 0, index \\ 0)
@@ -30,5 +23,3 @@ defmodule DayOne do
     end
   end
 end
-
-DayOne.main()
