@@ -17,16 +17,15 @@ defmodule AoC.DayTwo.PartOne do
   end
 
   defp get_multiplicants(occurrences_lists) do
-    twos =
-      Enum.reduce(occurrences_lists, 0, fn x, acc ->
-        if Enum.member?(x, 2), do: acc + 1, else: acc
-      end)
-
-    threes =
-      Enum.reduce(occurrences_lists, 0, fn x, acc ->
-        if Enum.member?(x, 3), do: acc + 1, else: acc
-      end)
-
+    twos = get_multiplicant(occurrences_lists, 2)
+    threes = get_multiplicant(occurrences_lists, 3)
     [twos, threes]
+  end
+
+  defp get_multiplicant(occurrences_lists, count) do
+    multiplicant =
+      Enum.reduce(occurrences_lists, 0, fn x, acc ->
+        if Enum.member?(x, count), do: acc + 1, else: acc
+      end)
   end
 end
