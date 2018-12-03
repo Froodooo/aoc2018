@@ -13,17 +13,17 @@ defmodule AoC.DayThree.PartTwo do
 
   defp find_non_overlapping_claim(fabric, claims) do
     Enum.reduce_while(claims, false, fn claim, _ ->
-      result =
+      result_columns =
         Enum.reduce_while((claim.left + 1)..(claim.left + claim.columns), false, fn x, _ ->
-          result =
+          result_rows =
             Enum.reduce_while((claim.top + 1)..(claim.top + claim.rows), false, fn y, _ ->
               if Map.get(fabric, {x, y}) > 1, do: {:halt, false}, else: {:cont, true}
             end)
 
-          if result, do: {:cont, true}, else: {:halt, false}
+          if result_rows, do: {:cont, true}, else: {:halt, false}
         end)
 
-      if result, do: {:halt, claim.id}, else: {:cont, false}
+      if result_columns, do: {:halt, claim.id}, else: {:cont, false}
     end)
   end
 end
