@@ -10,9 +10,9 @@ defmodule AoC.DayThree.Common do
 
   def get_fabric(claims) do
     Enum.reduce(claims, %{}, fn claim, map ->
-      Enum.reduce((claim.left + 1)..(claim.left + claim.columns), map, fn x, acc_x ->
-        Enum.reduce((claim.top + 1)..(claim.top + claim.rows), acc_x, fn y, acc_y ->
-          Map.update(acc_y, {x, y}, 1, &(&1 + 1))
+      Enum.reduce((claim.left + 1)..(claim.left + claim.columns), map, fn x, map ->
+        Enum.reduce((claim.top + 1)..(claim.top + claim.rows), map, fn y, map ->
+          Map.update(map, {x, y}, 1, &(&1 + 1))
         end)
       end)
     end)
