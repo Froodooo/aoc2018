@@ -8,7 +8,7 @@ defmodule AoC.DayFour.Common do
     |> Enum.map(fn x ->
       [datetime, log] = Regex.run(~r/\[(.*)\] (.*)/, x, capture: :all_but_first)
       {:ok, datetime} = Timex.parse(datetime, "{YYYY}-{M}-{D} {h24}:{m}")
-      %{datetime: Timex.to_datetime(datetime), log: log}
+      %{datetime: datetime, log: log}
     end)
   end
 end
