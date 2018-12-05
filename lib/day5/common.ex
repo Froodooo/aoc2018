@@ -1,5 +1,8 @@
 defmodule AoC.DayFive.Common do
   def read_input(path) do
-    IO.puts path
+    path
+    |> File.read!()
+    |> String.trim()
+    |> String.graphemes()
   end
 end
