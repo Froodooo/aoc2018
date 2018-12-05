@@ -23,9 +23,8 @@ defmodule AoC.DayTwo.PartOne do
   end
 
   defp get_multiplicant(occurrences_lists, count) do
-    multiplicant =
-      Enum.reduce(occurrences_lists, 0, fn x, acc ->
-        if Enum.member?(x, count), do: acc + 1, else: acc
-      end)
+    Enum.reduce(occurrences_lists, 0, fn x, acc ->
+      if Enum.member?(x, count), do: acc + 1, else: acc
+    end)
   end
 end
