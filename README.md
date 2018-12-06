@@ -6,3 +6,4 @@ Solutions to Advent of Code 2018
 - [Day 3](lib/day3)
 - [Day 4](lib/day4)
 - [Day 5](lib/day5)
+- [Day 6](lib/day6)
